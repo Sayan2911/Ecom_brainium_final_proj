@@ -13,7 +13,12 @@ import image5 from "../images/Frame 702.png"
 import image6 from "../images/Rectangle 18.png"
 import image7 from "../images/Fill With Left Arrow.png"
 import image8 from "../images/Fill with Right Arrow.png"
-
+import phone from "../images/icons/Category-CellPhone.png"
+import pc from "../images/icons/Category-Computer.png"
+import watch from "../images/icons/Category-SmartWatch.png"
+import camera from "../images/icons/Category-Camera.png"
+import headphone from "../images/icons/Category-Headphone.png"
+import game from "../images/icons/Category-Gamepad.png"
 
 import { TbShirt } from "react-icons/tb";
 import { GiLargeDress } from "react-icons/gi";
@@ -77,17 +82,17 @@ const Home = () => {
     <div className="d-flex mx-4  border " style={{ width: '93.5vw' }}>
 
     
-    <div className="d-flex justify-content-start align-items-start  flex-column border pt-3 " style={{ width: '40%' }}>
+    <div className="d-flex justify-content-start align-items-start  flex-column border pt-3  " style={{ width: '40%' }}>
   
-      <Link to={"/womens"}  className=" text-decoration-none m-1 " >Women's Fashion&#160; &#160;  &#160; &#160;  &#160; &#160; &#160; &#160; 〉 </Link>
-      <Link to={"/mens"} className="text-decoration-none m-1">Men's Fashion  &#160; &#160; &#160; &#160; &#160; &#160;   &#160; &#160;  &#160;  &#160; &#160;  〉</Link>
-      <Link to={"/electronics"} className="text-decoration-none m-1">Electronics</Link>
-      <Link to={"/jewelery"} className="text-decoration-none m-1">Home & Lifestyle</Link>
-      <Link to={"/mens"} className=" text-decoration-none m-1">Medicine</Link>
-      <Link to={"/womens"} className="text-decoration-none m-1">Sports & Outdoor</Link>
-      <Link to={"/electronics"} className="text-decoration-none m-1">Bab's & Toys</Link>
-      <Link to={"/jewelery"} className="text-decoration-none m-1">Groceries & Pets</Link>
-      <Link to={"/jewelery"} className="text-decoration-none m-1">Health & beauty</Link>
+      <Link to={"/womens"}  className=" text-decoration-none m-1 text-dark" >Women's Fashion&#160; &#160;  &#160; &#160;  &#160; &#160; &#160; &#160; 〉 </Link>
+      <Link to={"/mens"} className="text-decoration-none m-1 text-dark">Men's Fashion  &#160; &#160; &#160; &#160; &#160; &#160;   &#160; &#160;  &#160;  &#160; &#160;  〉</Link>
+      <Link to={"/electronics"} className="text-decoration-none m-1 text-dark">Electronics</Link>
+      <Link to={"/jewelery"} className="text-decoration-none m-1 text-dark">Home & Lifestyle</Link>
+      <Link to={"/mens"} className=" text-decoration-none m-1 text-dark">Medicine</Link>
+      <Link to={"/womens"} className="text-decoration-none m-1 text-dark">Sports & Outdoor</Link>
+      <Link to={"/electronics"} className="text-decoration-none m-1 text-dark">Bab's & Toys</Link>
+      <Link to={"/jewelery"} className="text-decoration-none m-1 text-dark">Groceries & Pets</Link>
+      <Link to={"/jewelery"} className="text-decoration-none m-1 text-dark">Health & beauty</Link>
     </div>
 
       <div className="  d-flex justify-content-center align-items-center m-4" style={{ width: '80%' }}><Swiper/> </div>
@@ -152,17 +157,23 @@ const Home = () => {
       </div>
 
       <div className="p-4 w-full d-flex align-items-center justify-content-center">
-      <div className="border p-4 icon-container bgChange" >
-       <Link to={"/mens"}> <TbShirt size={50}  /> </Link> 
+      <div className="border p-4 icon-container bgChange " >
+       <Link to={"/mens"}> <img src={phone} alt="" className="changeColor" /> </Link> 
       </div>
       <div className="border p-4 icon-container bgChange">
-      <Link to={"/womens"}> <GiLargeDress size={50} /> </Link> 
+      <Link to={"/womens"}> <img src={pc} alt=""  className="changeColor"/></Link> 
       </div>
       <div className="border p-4 icon-container bgChange">
-      <Link to={"/electronics"}>  <FcElectronics size={50} /> </Link> 
+      <Link to={"/electronics"}> <img src={watch} alt="" className="changeColor" /> </Link> 
+      </div>
+      <div className="border p-4 icon-container bgChange ">
+      <Link to={"/jewelery"}> <img src={camera} alt="" className="changeColorss camera"/> </Link> 
       </div>
       <div className="border p-4 icon-container bgChange">
-      <Link to={"/jewelery"}>  <GiPearlNecklace size={50} /> </Link> 
+      <Link to={"/jewelery"}> <img src={headphone} alt="" className="changeColor" /> </Link> 
+      </div>
+      <div className="border p-4 icon-container bgChange">
+      <Link to={"/jewelery"}> <img src={game} alt="" className="changeColor" /> </Link> 
       </div>
     </div>
 

@@ -37,6 +37,7 @@ function navCheckout(){
             desc={store[item].desc}
             price={store[item].price}
             star={store[item].rating.rate}
+            rates={store[item].rating.count}
           />
         ))}
        

@@ -43,8 +43,26 @@
 .cards:hover .icon {
   color: white;
 }
-
+.changeColor {
+  transition: filter 0.1s ease;
+}
+.camera{
+  filter: invert(100%);
+}
+.bgChange:hover .changeColor {
+  filter: invert(100%);
+}
+.bgChange:hover .changeColorss {
+  transition: filter 0.1s ease;
+  filter: invert(0%);
+}
  
+
+
+.rrr{
+  border-radius: 100%;
+  
+}
 /* contact page */
 
 .contact-page {

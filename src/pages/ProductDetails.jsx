@@ -3,6 +3,12 @@ import store from "../store.json"
 import Star from "./Non-linked/Star"
 import { FaStar, FaRegHeart } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
+
+
+import delivary from "../images/Frame 911.png"
+import RelatedItems from './RelatedItems';
+
+
 var val=null
 const ProductDetails = () => {
 
@@ -29,16 +35,16 @@ const ProductDetails = () => {
 
   return (
 <>
-<div className="container product-details mt-5">
-      <div className="d-flex flex-wrap">
-        <div className="col-12 col-md-6 mb-3">
-          <img src={val.image} alt="none" className="img-fluid product-image" />
+<div className="container product-details mt-5" style={{width:"100vw", height:"80vh"}}>
+      <div className="d-flex flex-wrap" style={{width:"100%" , height:"100%"}}>
+        <div className="col-12 col-md-6 mb-3 d-flex justify-content-center align-items-center " style={{width:"50%" , height:"100%"}}>
+          <img src={val.image} alt="none" className="img-fluid product-image object-fit-scale"  style={{width:"100%" , height:"100%"}}/>
         </div>
-        <div className="col-12 col-md-6 mb-3">
+        <div className="col-12 col-md-6 mb-3 p-4 d-flex justify-content-between align-items-start flex-column"style={{width:"50%" , height:"100%"}}>
           <h2>{val.title}</h2>
-          <div className="stars-reviews mb-3">
+          <div className="stars-reviews mb-3">  
             <Star value={val.rating.rate} />
-            <span>({val.reviews} reviews)</span>
+            <span>({val.rating.count} )</span>
           </div>
           <div className="price mb-3">${val.price}</div>
           <div className="description mb-3">{val.description}</div>
@@ -49,9 +55,15 @@ const ProductDetails = () => {
             <button className="btn btn-danger ms-3">Add to Cart</button>
             <FaRegHeart className="ms-3 heart-icon" />
           </div>
+
+          <img src={delivary} alt=""style={{width:"100%" , height:"30%"}} />
         </div>
       </div>
     
+    </div>
+
+    <div>
+      <RelatedItems categories={val.category}/>
     </div>
 
 </>

@@ -3,11 +3,16 @@ import { CiHeart } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
 import { CiSearch } from "react-icons/ci";
 import { Link } from 'react-router-dom';
-import { PiUserCircleLight } from "react-icons/pi";
+import { CiUser } from "react-icons/ci";
 import useStore from '../../useStore';
 
 
 const Navbar = () => {
+
+
+  function hello(){
+    console.log("hello");
+  }
 
   const { data,name } = useStore();
   return (
@@ -34,7 +39,7 @@ const Navbar = () => {
        </div>
        
        </Link>
-       <PiUserCircleLight size={30} />
+       <CiUser size={25} className='bgChange rrr' onClick={()=>(hello())} />
 
         <div>welcome {name}</div>
         </div>

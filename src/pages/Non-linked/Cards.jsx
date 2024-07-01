@@ -19,7 +19,7 @@ const Cards = ({id,image,title,price,star,rates}) => {
       console.log("cred is false and not logged in yet, changing to true");
     } else {
       console.log(id);
-      setData(id)
+      setData(id-1)
       // 
       console.log("cred is true and logged in");
     }
@@ -51,7 +51,7 @@ const Cards = ({id,image,title,price,star,rates}) => {
           Add to Cart
         </button>
       </div>
-      <div className="card-body d-flex justify-content-center align-items-start flex-column flex-grow-1" style={{ height: '170px', width: '100%'  }} >
+      <div className="card-body d-flex justify-content-center align-items-start flex-column flex-grow-1" style={{ height: '130px', width: '100%'  }} >
         <h6 className="card-title ">{title}</h6>
         <div className='d-flex gap-2  ' style={{height:"2.5vh",  }}>
           <p className="card-text text-success ">${price}</p>

@@ -36,7 +36,8 @@ Data.map((item)=>{
         title={item.title}
         desc={item.desc}
         price={item.price}
-        star={item.rating.rate} />
+        star={item.rating.rate} 
+        rates={item.rating.count}/>
         
         
      

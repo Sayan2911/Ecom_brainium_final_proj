@@ -5,13 +5,14 @@ import Star from './Star';
 import useStore from '../../useStore';
 import { useNavigate } from 'react-router-dom';
 import ProductDetails from '../ProductDetails';
-
+import usecartStore from '../../usecartStore';
+import store from "../../store.json"
 
 
 const Cards = ({id,image,title,price,star,rates}) => {
   const navigate = useNavigate();
-  const { cred, setCred } = useStore();
-  const {  setData } = useStore();
+  const { cred, setData  } = useStore();
+  const { addItemByPriceData } = usecartStore();
 
   const isLogged = () => {
     if (cred === false) {
@@ -28,6 +29,8 @@ const Cards = ({id,image,title,price,star,rates}) => {
   const addCart2 = () => {
     setData(id)
     navigate("/cart")
+ 
+
   }
   const view = () => {
     console.log(" id issss   "+id);

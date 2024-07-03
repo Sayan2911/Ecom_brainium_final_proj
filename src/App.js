@@ -22,6 +22,7 @@ import Mens from './pages/categories/Mens';
 import Womens from './pages/categories/Womens';
 import Electronics from './pages/categories/Electronics';
 import Jewelery from './pages/categories/Jwellery';
+import Update from './pages/Auth/Update';
 
 
 
@@ -59,6 +60,7 @@ function App() {
         <Route path="womens" element={<Womens />} />
         <Route path="electronics" element={<Electronics />} />
         <Route path="jewelery" element={<Jewelery />} />
+        <Route path="update" element={<Update />} />
         <Route path="*" element={<Error />} />
       </Route>
        

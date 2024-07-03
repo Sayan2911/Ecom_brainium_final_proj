@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import  useStore  from '../useStore';
-import Cart from './Cart';
-import Cards from './Non-linked/Cards';
+
 import store from "../store.json"
 import RelatedItems from './RelatedItems';
+import CartCard from './CartCard';
+import usecartStore from '../usecartStore';
 
 const Wishlist = () => {
   const navigate = useNavigate();
   const { cred,data } = useStore();
+
   
 console.log(data);
   
@@ -21,33 +23,36 @@ console.log(data);
    console.log(data);
 
   function pass(){
+ 
     navigate('/cart');
   }
   
   return (
     <>
     
-    <div className='container gap-2 d-flex flex-wrap' style={{width:"100%"}}>
+    <div className='container gap-2 d-flex flex-wrap d-flex align-items-center justify-content-center' style={{width:"100%"}}>
     {
-      data.map((item)=>{
+     (data.length!==0)?( data.map((item)=>{
         
     
-            return  (
-            <Cards 
-            id={store[item].id}
-            key={store[item].id}
-            image={store[item].image}
-            title={store[item].title}
-            desc={store[item].desc}
-            price={store[item].price}
-            star={store[item].rating.rate}
-            rates={store[item].rating.count}
-            />
-           
-            )
-            }
-          )
-         
+      return  (
+      <CartCard 
+      id={store[item].id}
+      key={store[item].id}
+      image={store[item].image}
+      title={store[item].title}
+      desc={store[item].desc}
+      price={store[item].price}
+      star={store[item].rating.rate}
+      rates={store[item].rating.count}
+      />
+     
+      )
+      }
+    )):(
+      <div className='d-flex align-items-center justify-content-center'><p>no item found</p></div>
+      
+    )
             }
 
 
@@ -56,7 +61,7 @@ console.log(data);
 
    <button className='btn btn-primary ' onClick={()=>(pass())}> add to bag</button>
     <div>
-    <RelatedItems categories={store[data[data.length-1]].category}/>
+    <RelatedItems categories={store[Math.floor(Math.random() * 13)].category}/>
     </div>
     </>
     

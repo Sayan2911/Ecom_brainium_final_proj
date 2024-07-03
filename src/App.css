@@ -153,3 +153,13 @@ form .form-control {
   height: 200px;
   background-color: #f7f7f7;
 }
+
+.form-section {
+  margin-bottom: 20px;
+}
+.form-section h3 {
+  color: #dc3545; /* Bootstrap danger color */
+}
+.form-section p {
+  font-weight: bold;
+}

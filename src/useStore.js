@@ -1,22 +1,8 @@
 import { create } from 'zustand';
 
-// Utility functions to interact with localStorage
-const loadState = (key, defaultValue) => {
-  const storedValue = localStorage.getItem(key);
-  return storedValue ? JSON.parse(storedValue) : defaultValue;
-};
-
-const saveState = (key, value) => {
-  localStorage.setItem(key, JSON.stringify(value));
-};
-
 const useStore = create((set) => ({
-  data: loadState('data', []),
-  cred: loadState('cred', true),
-  name: loadState('name', ''),
-  email: loadState('email', ''),
-  password: loadState('password', ''),
-
+  data: [],
+  
   // Function to set data ensuring no duplicates
   setData: (newData) => set((state) => {
     // Combine current data and new data
@@ -27,29 +13,20 @@ const useStore = create((set) => ({
       index === self.indexOf(item)
     );
 
-    saveState('data', uniqueData); // Save to local storage
     return { data: uniqueData };
   }),
-
-  setCred: (newCred) => set(() => {
-    saveState('cred', newCred); // Save to local storage
-    return { cred: newCred };
+  deleteData: (identifier) => set((state) => {
+    const filteredData = state.data.filter(item => item !== identifier);
+    return { data: filteredData };
   }),
-
-  setName: (name) => set(() => {
-    saveState('name', name); // Save to local storage
-    return { name };
-  }),
-
-  setEmail: (email) => set(() => {
-    saveState('email', email); // Save to local storage
-    return { email };
-  }),
-
-  setPassword: (password) => set(() => {
-    saveState('password', password); // Save to local storage
-    return { password };
-  }),
+  cred: true,
+  setCred: (newCred) => set({ cred: newCred }),
+  name: '',
+  email: '',
+  password: '',
+  setName: (name) => localStorage.setItem(set({ name })),
+  setEmail: (email) => set({ email }),
+  setPassword: (password) => set({ password }),
 }));
 
 export default useStore;

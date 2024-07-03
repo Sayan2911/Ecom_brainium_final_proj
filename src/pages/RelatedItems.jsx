@@ -18,7 +18,9 @@ const RelatedItems = ({categories}) => {
     <div  className='d-flex justify-content-center align-item-center gap-2 m-4' style={{width:"100%"}}>
 
   
-        <div className='d-flex justify-content-between align-item-center gap-5 m-4' style={{width:"90%"}}>{
+        <div className='d-flex justify-content-between align-item-center gap-5 m-4' style={{width:"90%"}}>
+          {
+            // eslint-disable-next-line array-callback-return
             store.map((item)=>{
                 if(item.category===categories){
             

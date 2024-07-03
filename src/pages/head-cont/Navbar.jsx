@@ -30,8 +30,15 @@ const Navbar = () => {
 
         <div className='  w-screen d-flex justify-content-between align-items-center  mx-4 my-2 gap-2' >
         <input type="text"  /><CiSearch  size={30}/>
-        <Link to="/wishlist" ><CiHeart   size={30} /></Link>
-       <Link to="/cart" className='text-decoration-none '> 
+        <Link to="/wishlist" className='text-decoration-none ' >
+        
+        <div className='  d-flex '>
+        <CiHeart   size={30} />
+       <div>{data.length}</div>
+       </div>
+        
+        </Link>
+       <Link to="/cart" className='text-decoration-none ' > 
        
        <div className='  d-flex '>
        <CiShoppingCart  size={30} /> 

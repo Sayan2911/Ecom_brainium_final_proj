@@ -90,7 +90,7 @@ const Home = () => {
       <Link to={"/jewelery"} className="text-decoration-none m-1 text-dark">Home & Lifestyle</Link>
       <Link to={"/mens"} className=" text-decoration-none m-1 text-dark">Medicine</Link>
       <Link to={"/womens"} className="text-decoration-none m-1 text-dark">Sports & Outdoor</Link>
-      <Link to={"/electronics"} className="text-decoration-none m-1 text-dark">Bab's & Toys</Link>
+      <Link to={"/electronics"} className="text-decoration-none m-1 text-dark">Baby's & Toys</Link>
       <Link to={"/jewelery"} className="text-decoration-none m-1 text-dark">Groceries & Pets</Link>
       <Link to={"/jewelery"} className="text-decoration-none m-1 text-dark">Health & beauty</Link>
     </div>

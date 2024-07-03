@@ -3,10 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import  useStore  from '../useStore';
 import Cards from './Non-linked/Cards';
 import store from "../store.json"
+
 const Cart = () => {
   const navigate = useNavigate();
   const { cred,data } = useStore();
-  // const { Data} = useStore(); 
+  
 console.log(data);
   
   useEffect(() => {
@@ -25,7 +26,7 @@ function navCheckout(){
 
 
     <div className='container gap-2 d-flex flex-wrap'>
-      {/* cart{ data} */}
+  
        
        {
         data.map((item) => (

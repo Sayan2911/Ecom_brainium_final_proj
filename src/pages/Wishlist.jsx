@@ -59,7 +59,12 @@ console.log(data);
 
     </div>
 
-   <button className='btn btn-primary ' onClick={()=>(pass())}> add to bag</button>
+
+   <div className='d-flex  align-items-center justify-content-center  '>
+
+   <button className='btn btn-primary m-1 ' onClick={()=>(pass())}> add to bag</button>
+
+</div>
     <div>
     <RelatedItems categories={store[Math.floor(Math.random() * 13)].category}/>
     </div>

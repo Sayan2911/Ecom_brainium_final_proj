@@ -23,6 +23,7 @@ import Womens from './pages/categories/Womens';
 import Electronics from './pages/categories/Electronics';
 import Jewelery from './pages/categories/Jwellery';
 import Update from './pages/Auth/Update';
+import BillPayment from './pages/BillPayment';
 
 
 
@@ -61,6 +62,8 @@ function App() {
         <Route path="electronics" element={<Electronics />} />
         <Route path="jewelery" element={<Jewelery />} />
         <Route path="update" element={<Update />} />
+        <Route path="payment" element={<BillPayment />} />
+
         <Route path="*" element={<Error />} />
       </Route>
        

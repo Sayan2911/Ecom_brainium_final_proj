@@ -27,7 +27,7 @@ const Cards = ({id,image,title,price,star,rates}) => {
   };
 
   const addCart2 = () => {
-    setData(id)
+    setData(id-1)
     navigate("/cart")
  
 

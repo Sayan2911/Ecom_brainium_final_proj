@@ -12,9 +12,13 @@ const usecartStore = create((set, get) => ({
   removeItemByPriceData: (priceData) => set((state) => ({
     data: Math.floor(Math.floor(state.data) - Math.floor(priceData))
   })),
-
+  setZero:()=>set(()=>({
+    data:0}
+  )),
   // Computed property to get the total value (same as data in this case)
   getTotalValue: () => get().data,
+
+  resetCartData: () => set({ data: 0 }),
 }));
 
 export default usecartStore;

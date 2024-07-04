@@ -1,9 +1,15 @@
 import React from 'react'
 import usecartStore from '../usecartStore';
+import { useNavigate } from 'react-router-dom';
 
 const Bill = () => {
 
   const {  getTotalValue } = usecartStore();
+  const navigate = useNavigate();
+
+  function navToPayment(){
+    navigate("/payment")
+  }
   return (
     <>
     
@@ -30,7 +36,7 @@ const Bill = () => {
         <p>{getTotalValue()}</p>
       </div>
     </div>
-      <button className='btn btn-danger' >Checkout</button>
+      <button className='btn btn-danger' onClick={()=>(navToPayment())} >Checkout</button>
     
     </>
   )

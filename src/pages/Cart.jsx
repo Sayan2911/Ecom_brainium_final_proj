@@ -24,27 +24,34 @@ function navCheckout(){
   
   return (  
 
-
+<>
     <div className='container gap-2 d-flex flex-wrap'>
   
        
        {
-        data.map((item) => (
-          <Cards
-          
-            id={store[item].id}
-            image={store[item].image}
-            title={store[item].title}
-            desc={store[item].desc}
-            price={store[item].price}
-            star={store[item].rating.rate}
-            rates={store[item].rating.count}
-          />
-        ))}
+        (data.length!==0)?(  data.map((item) => (
+           <Cards
+           
+           id={store[item].id}
+           image={store[item].image}
+           title={store[item].title}
+           desc={store[item].desc}
+           price={store[item].price}
+           star={store[item].rating.rate}
+           rates={store[item].rating.count}
+           />
+          ))):(
+            <div className='d-flex align-items-center justify-content-center'><p>no item found</p></div>
+          )
+          }
        
-       <button className='btn btn-danger' onClick={()=>{navCheckout()}}>checkout</button>
+       </div>
+       <div className='d-flex  align-items-center justify-content-center  m-5'>
+
+       <button className='btn btn-danger m-5'  onClick={()=>{navCheckout()}}>checkout</button>
        </div>
     
+          </>
   )
 }
 

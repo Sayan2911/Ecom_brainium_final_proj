@@ -22,6 +22,19 @@ const Checkout = () => {
 
     <div style={{width:"70%"}} >
 
+      <table style={{ width: '89%' }} className='m-5'>
+
+            <thead style={{ width: '100%' }} >
+              <tr style={{ width: '100%' }}>
+                <th style={{ width: '40%' }} >Product</th>
+                <th style={{ width: '10%' }}>Price</th>
+                <th style={{ width: '10%' }}>Quantity</th>
+                <th style={{ width: '10%' }}>Subtotal</th>
+              </tr>
+            </thead>
+
+      </table>
+
       {
         data.map((item)=>(
 

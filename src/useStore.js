@@ -19,6 +19,10 @@ const useStore = create((set) => ({
     const filteredData = state.data.filter(item => item !== identifier);
     return { data: filteredData };
   }),
+
+  resetData: () => set({ data: 0 }),
+
+
   cred: true,
   setCred: (newCred) => set({ cred: newCred }),
   name: '',

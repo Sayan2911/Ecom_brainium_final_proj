@@ -6,10 +6,11 @@ import store from "../store.json"
 import RelatedItems from './RelatedItems';
 import CartCard from './CartCard';
 import usecartStore from '../usecartStore';
-
+import { useUpdateStore } from '../useUpdateStore';
 const Wishlist = () => {
   const navigate = useNavigate();
-  const { cred,data } = useStore();
+  const { cred,data,resetData } = useStore();
+  const { setDataUp } = useUpdateStore();
 
   
 console.log(data);
@@ -23,8 +24,12 @@ console.log(data);
    console.log(data);
 
   function pass(){
- 
-    navigate('/cart');
+  return  (data.length!==0)?(
+      setDataUp(data),
+    resetData(),
+    navigate('/cart')):(
+     console.log("please add data")
+    )
   }
   
   return (

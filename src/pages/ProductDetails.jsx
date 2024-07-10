@@ -3,16 +3,23 @@ import store from "../store.json"
 import Star from "./Non-linked/Star"
 import { FaStar, FaRegHeart } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
-
-
+import { useNavigate } from 'react-router-dom';
+import { CiHeart } from "react-icons/ci";
+import { FaHeart } from "react-icons/fa";
 import delivary from "../images/Frame 911.png"
 import RelatedItems from './RelatedItems';
+import { useUpdateStore } from '../useUpdateStore';
+import useStore from '../useStore';
+import usecartStore from '../usecartStore';
 
 
 var val=null
 const ProductDetails = () => {
-
-
+  const navigate = useNavigate();
+  const {  setData  } = useStore();
+  const {  setDataUp  } = useUpdateStore();
+  const { addItemByPriceData } = usecartStore();
+  const [icon, setIcon] = useState(<CiHeart size={30} className='mx-2'/>);
   var {id}=useParams()
    console.log(id);
  
@@ -25,7 +32,15 @@ const ProductDetails = () => {
    } else {
      console.log('Item not found');
    }
- 
+ function addToCart(){
+  setDataUp(id-1)
+  navigate('/cart')
+  addItemByPriceData(store[id-1].price) 
+ }
+ function addToWish(){
+  setData(id-1)
+      setIcon(<FaHeart style={{ color: "red" }}size={25} className='mx-2'/>)
+ }
 
 
   const [quantity, setQuantity] = useState(1);
@@ -50,13 +65,16 @@ const ProductDetails = () => {
           <div className="description mb-3">{val.description}</div>
           <div className="d-flex align-items-center mt-3">
             <button className="btn btn-outline-secondary" onClick={handleDecrement}>-</button>
-            <div className="quantity mx-3">{quantity}</div>
+            <div className="quantity ">{quantity}</div>
             <button className="btn btn-outline-secondary" onClick={handleIncrement}>+</button>
-            <button className="btn btn-danger ms-3">Add to Cart</button>
-            <FaRegHeart className="ms-3 heart-icon" />
+            <button className="btn btn-danger ms-3" onClick={()=>(addToCart())}>Add to Cart</button>
+           
+           <div onClick={()=>(addToWish())}>
+           {icon}
+           </div>
           </div>
 
-          <img src={delivary} alt=""style={{width:"100%" , height:"30%"}} />
+          <img src={delivary} alt=""style={{width:"100%" , height:"30%"}} className='object-fit-scale ' />
         </div>
       </div>
     

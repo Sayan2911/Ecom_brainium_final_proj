@@ -10,7 +10,7 @@ const Footer = () => {
       <div className='col-lg-2 col-md-3 col-sm-6 text-white mx-2 text-center'>
         <h5>Subscribe</h5>
         <p>Get 10% off on your first order</p>
-        <input type="text" placeholder='Enter your email' className='form-control bg-dark text-white' />
+        <input type="text" placeholder='Enter your details ' className='form-control bg-dark  placeholder placeholder-glow text-white' />
       </div>
       <div className='col-lg-2 col-md-3 col-sm-6 text-white mx-2 text-center'>
         <h5>Support</h5>

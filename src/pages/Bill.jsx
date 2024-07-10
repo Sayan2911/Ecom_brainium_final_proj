@@ -12,7 +12,8 @@ const Bill = () => {
   }
   return (
     <>
-    
+    <div className='border p-5'>
+
     <div>
 
       <div >
@@ -36,8 +37,13 @@ const Bill = () => {
         <p>{getTotalValue()}</p>
       </div>
     </div>
+
+    <div className='d-flex align-items-center justify-content-center my-5'>
+
       <button className='btn btn-danger' onClick={()=>(navToPayment())} >Checkout</button>
+    </div>
     
+    </div>
     </>
   )
 }

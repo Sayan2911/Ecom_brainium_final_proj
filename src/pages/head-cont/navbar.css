@@ -11,6 +11,7 @@
     justify-content: space-between;
     align-items: center;
     text-decoration: none;
+    
   }
   
   .navbar-actions {
@@ -27,10 +28,45 @@
     position: absolute;
     top: 35px; /* Adjust as needed to position below the user icon */
     right: 0;
-    background-color: white;
-    border: 1px solid #ccc;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    /* border: 1px solid #777777bb; */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(39, 39, 39, 0.781);
     padding: 10px;
-    z-index: 1000;
+    height: 150px;
+    width: 220px;
+    z-index: 9;
+  }
+
+  /* Apply the blur effect to a pseudo-element instead */
+  .dialogue-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.622);
+    filter: blur(1px);
+    z-index: 1;
+    border-radius: 5px;
   }
   
+  .dialogue-box .text-decoration-none {
+    position: relative;
+    z-index: 2;
+  }
+
+
+.drop{
+  width: 255px;
+  height: 200px;
+  background-color: white;
+  border: 1px solid rgb(102, 102, 102);
+  position: absolute;
+  top: 45px;
+  z-index: 9;
+  right: 279px;
+  overflow: auto;
+
+}

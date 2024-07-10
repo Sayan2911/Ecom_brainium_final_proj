@@ -67,19 +67,19 @@ const Update = () => {
             </div>
         </div>
         
-        <div className="form-section">
-            <p>Password change</p>
+        <div className="form-section ">
+            <p>Password Changes</p>
             <div className="form-group">
-                <label for="currentPassword">Current Password</label>
-                <input type="password" className="form-control" id="currentPassword" placeholder="Enter current password"/>
+     
+                <input type="password" className="form-control my-2" id="currentPassword" placeholder="Enter current password"/>
             </div>
             <div className="form-group">
-                <label for="newPassword">New Password</label>
-                <input type="password" className="form-control" id="newPassword" placeholder="Enter new password"/>
+        
+                <input type="password" className="form-control my-2" id="newPassword" placeholder="Enter new password"/>
             </div>
             <div className="form-group">
-                <label for="reenterNewPassword">Re-enter New Password</label>
-                <input type="password" className="form-control" id="reenterNewPassword" placeholder="Re-enter new password"/>
+               
+                <input type="password" className="form-control my-2" id="reenterNewPassword" placeholder="Re-enter new password"/>
             </div>
             <div classNameName="form-section d-flex justify-content-end">
             <button type="button" className="btn btn-secondary m-2">Cancel</button>

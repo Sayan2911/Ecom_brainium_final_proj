@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Bill from './Bill';
 import usecartStore from '../usecartStore';
 import useStore from '../useStore';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import CreditCardInput from 'react-credit-card-input';
+import banks from "../images/Frame 834.png"
+import PaymentForm from './PaymentForm';
 
-
+import { useNavigate } from 'react-router-dom';
 const BillPayment = () => {
-
+  const navigate = useNavigate();
 const notify = () => toast.success("Order submitted succsesfully");
 
+
+const [check, setCheck] = useState(false)
 
     const {resetCartData }=usecartStore()
     const {resetData }=useStore()
@@ -17,6 +22,7 @@ const notify = () => toast.success("Order submitted succsesfully");
     function reset(){
         resetCartData()
         resetData()
+        navigate('/paymentConfirmation')
     }
 
   const [formData, setFormData] = useState({
@@ -39,6 +45,11 @@ const notify = () => toast.success("Order submitted succsesfully");
   const handleSubmit = (e) => {
     e.preventDefault();
     // Display a toast notification (or alert in this case)
+
+    console.log(
+      formData
+      
+    );
     
 notify()
     // Clear the form fields
@@ -50,11 +61,31 @@ notify()
       phoneNumber: '',
       emailAddress: '',
     });
+   
+   
   };
   const {  getTotalValue } = usecartStore();
-  return (
 
+
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
+
+  const handlePaymentMethodChange = (e) => {
+    setSelectedPaymentMethod(e.target.value);
+  };
+
+  useEffect(() => {
+              
+            
+             
+  }, [check])
+
+  return (
+    <>
+   
+    <h2 className='m-5'>Exclusive</h2>
     <div className='d-flex m-5' style={{width:"100%"}}>
+
+
  <ToastContainer />
   
     <div className="container  " style={{width:"40%"}} >
@@ -68,7 +99,7 @@ notify()
             name="name" 
             value={formData.name} 
             onChange={handleChange} 
-              
+              required
             style={{backgroundColor:"#F5F5F5"}}
           />
         </div>
@@ -80,7 +111,7 @@ notify()
             name="streetAddress" 
             value={formData.streetAddress} 
             onChange={handleChange} 
-              
+            required
             style={{backgroundColor:"#F5F5F5"}}
           />
         </div>
@@ -92,7 +123,7 @@ notify()
             name="floorApartmentNo" 
             value={formData.floorApartmentNo} 
             onChange={handleChange} 
-              
+            required
             style={{backgroundColor:"#F5F5F5"}}
           />
         </div>
@@ -104,7 +135,7 @@ notify()
             name="townCity" 
             value={formData.townCity} 
             onChange={handleChange} 
-              
+            required
             style={{backgroundColor:"#F5F5F5"}}
           />
         </div>
@@ -116,7 +147,7 @@ notify()
             name="phoneNumber" 
             value={formData.phoneNumber} 
             onChange={handleChange} 
-              
+            required
             style={{backgroundColor:"#F5F5F5"}}
           />
         </div>
@@ -128,7 +159,7 @@ notify()
             name="emailAddress" 
             value={formData.emailAddress} 
             onChange={handleChange} 
-              
+            required
             style={{backgroundColor:"#F5F5F5"}}
           />
         </div>
@@ -139,7 +170,7 @@ notify()
     <div style={{width:"60%"}} className='d-flex align-items-center justify-content-center'>
 
 
-    <div style={{width:"40%"}}>
+    <div style={{width:"45%"}}>
 
 <div  >
   <h4>Cart Total</h4>
@@ -161,10 +192,91 @@ notify()
   <p>total</p>
   <p>{getTotalValue()}</p>
 </div>
+{/* 
+<div>
+  
+<label htmlFor="" className='mx-2'><input type="radio"  name="bank" id="" className=' mx-2'/> cash on delivary</label>
+  <div className='d-flex align-items-center justify-content-between  gap-2 m-2'>
+
+    <label htmlFor=""><input type="radio" name="bank" id=""className='m-2' />banks</label>
+    <img src={banks} alt="none" />
+
+  </div>
+<div required>
+
+  <CreditCardInput
+   onError={({ inputName, err }) => console.log(`credit card input error: ${err}`)}
+   cardCVCInputProps={{
+     onBlur: e => console.log('cvc blur', e.target.value),
+     onChange: e => console.log('cvc change',),
+     onError: err => console.log(`cvc error: ${err}`)
+    }}
+    cardExpiryInputProps={{
+      onBlur: e => console.log('expiry blur', e.target.value),
+      onChange: e => console.log('expiry change', ),
+      onError: err => console.log(`expiry error: ${err}`)
+    }}
+    cardNumberInputProps={{
+      onBlur: e => console.log('number blur', e.target.value),
+      onChange: e => console.log('number change'),
+      onError: err => console.log(`number error: ${err}`)
+    }}
+    
+/>
+    </div>
+
+
+
+
+
+
+
+
+</div> */}
+
+<div>
+      <label className='mx-2'>
+        <input
+          type='radio'
+          name='bank'
+          value='cash'
+          className='mx-2'
+          onChange={handlePaymentMethodChange}
+        />
+        Cash on Delivery
+      </label>
+      <div className='d-flex align-items-center justify-content-between gap-2 m-2'>
+        <label>
+          <input
+            type='radio'
+            name='bank'
+            value='banks'
+            className='m-2'
+            onChange={handlePaymentMethodChange}
+          />
+          Banks
+        </label>
+        <img src={banks} alt='banks' />
+      </div>
+      {selectedPaymentMethod === 'banks' && (
+        <div>
+
+          
+            
+            
+           <PaymentForm/>
+          
+        </div>
+      )}
+    </div>
+
 </div>
         
     </div>
     </div>
+
+    </>
+
   );
 };
 

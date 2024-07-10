@@ -76,9 +76,10 @@
 import React, { useEffect, useState } from 'react';
 import { setLocalStorageItem, getLocalStorageItem } from '../localStorageUtil';
 import usecartStore from '../usecartStore';
-
+import { useUpdateStore } from '../useUpdateStore';
 const CheckoutCart = ({ title, price }) => {
   const { addItemByPriceData, removeItemByPriceData } = usecartStore();
+  const { deleteDataUp } = useUpdateStore();
   const [quantity, setQuantity] = useState(getLocalStorageItem(title) || 1);
 
   useEffect(() => {
@@ -95,6 +96,8 @@ const CheckoutCart = ({ title, price }) => {
       setQuantity(prevQuantity => prevQuantity - 1);
       removeItemByPriceData(price);
     }
+    // if(quantity===0)
+    //   deleteDataUp(price)
   };
 
   return (
@@ -108,10 +111,17 @@ const CheckoutCart = ({ title, price }) => {
                 <td style={{ width: '40%', overflow: 'hidden' }}>{title}</td>
                 <td style={{ width: '10%', overflow: 'hidden' }}>{price}</td>
                 <td style={{ width: '10%' }}>
-                  <div className='d-flex'>
-                    <button className="btn btn-outline-secondary" onClick={handleDecrement}>-</button>
-                    <div className="">{quantity}</div>
-                    <button className="btn btn-outline-secondary" onClick={handleIncrement}>+</button>
+                  <div className='d-flex align-items-center'>
+                    <div className='d-flex border justify-content-between' style={{width:"58%",height:"40px"}}>
+
+                    <div className="m-1  d-flex align-items-center justify-content-center" style={{width:"40%",height:"30px"}} >{quantity}</div>
+
+                    <div className='d-flex flex-column'>
+
+                    <button className="bg-danger text-white rounded border d-flex align-items-end justify-content-center " onClick={handleIncrement}style={{width:"30px",height:"20px"}} >︿</button>
+                    <button className="bg-danger text-white rounded border d-flex align-items-END justify-content-center" onClick={handleDecrement} style={{width:"30px",height:"20px"}}>﹀</button>
+                    </div>
+                    </div>
                   </div>
                 </td>
                 <td style={{ width: '10%' }}>{Math.floor(quantity * price)}</td>

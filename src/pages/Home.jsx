@@ -24,6 +24,7 @@ import { TbShirt } from "react-icons/tb";
 import { GiLargeDress } from "react-icons/gi";
 import { FcElectronics } from "react-icons/fc";
 import { GiPearlNecklace } from "react-icons/gi";
+import Timer from "./Timer"
 
 
 
@@ -79,10 +80,10 @@ const Home = () => {
   return (
    <>
 
-    <div className="d-flex mx-4  border " style={{ width: '93.5vw' }}>
+    <div className="d-flex mx-4  border-top " style={{ width: '93.5vw' }}>
 
     
-    <div className="d-flex justify-content-start align-items-start  flex-column border pt-3  " style={{ width: '40%' }}>
+    <div className="d-flex justify-content-start align-items-start  flex-column border-right   pt-3  " style={{ width: '40%' }}>
   
       <Link to={"/womens"}  className=" text-decoration-none m-1 text-dark" >Women's Fashion&#160; &#160;  &#160; &#160;  &#160; &#160; &#160; &#160; 〉 </Link>
       <Link to={"/mens"} className="text-decoration-none m-1 text-dark">Men's Fashion  &#160; &#160; &#160; &#160; &#160; &#160;   &#160; &#160;  &#160;  &#160; &#160;  〉</Link>
@@ -95,21 +96,24 @@ const Home = () => {
       <Link to={"/jewelery"} className="text-decoration-none m-1 text-dark">Health & beauty</Link>
     </div>
 
-      <div className="  d-flex justify-content-center align-items-center m-4" style={{ width: '80%' }}><Swiper/> </div>
+      <div className="  d-flex justify-content-center align-items-center m-4  " style={{ width: '80%' }}><Swiper/> </div>
     
       </div>
 
-      <div className="m-3 d-flex justify-content-start align-items-center h-16 w-full">
+      <div className="m-3 d-flex justify-content-start align-items-center h-16 w-full ">
         <div className=" rounded mx-2" > <img src={image6} alt="none" /> </div>
         <p className="m-3 text-danger">Today's </p>
       </div>
 
 
 
-      <div className="mx-3 d-flex justify-content-start align-items-end h-16 w-full">
+      <div className="mx-3 d-flex justify-content-center align-items-center h-16 w-full">
        
         <h2 className=" m-0 mx-2" style={{width:"20%"  }} >Flash Sales </h2>
-        <img src={image} alt="none" style={{width:"40%" ,height:"12.5vh"}}  />
+        <div style={{width:"40%"}} className="mb-4"> 
+
+<Timer/>
+</div>
         <div className="d-flex  justify-content-end w-full" style={{width:"40%" ,marginLeft:"20vh" }} >
       <button className="btn " onClick={scrollLeft}> <img src={image7} alt="" /> </button>
       <button className="btn " onClick={scrollRight}><img src={image8} alt="" /></button>
@@ -184,7 +188,7 @@ const Home = () => {
 
       <div className="m-3 d-flex justify-content-between align-items-center h-16 w-full">
         {/* <div className=" rounded" style={{width:"2vh" ,height:"6vh" ,backgroundColor:"red"}} > </div> */}
-        <h1 className="m-3  font-weight-bold">Best Selling Products </h1>
+        <h1 className="m-3  font-weight-bold">Best Selling Products  </h1>
         <div className="d-flex align-item-center justify-content-center">
 
         <Link className="btn btn-danger" to={"/allProduct"} >View All</Link>
@@ -224,11 +228,12 @@ const Home = () => {
 
       <div className="m-3 d-flex justify-content-between align-items-center h-16 w-full">
         {/* <div className=" rounded" style={{width:"2vh" ,height:"6vh" ,backgroundColor:"red"}} > </div> */}
-        <h1 className="m-3  font-weight-bold">Best Selling Products </h1>
+        <h1 className="m-3  font-weight-bold">Explore Our Products </h1>
         <div className="d-flex align-item-center justify-content-center">
 
-        <button className="btn " onClick={scrollLeft2}> ⬅️ </button>
-        <button className="btn " onClick={scrollRight2}>➡️</button>
+
+        <button className="btn " onClick={scrollLeft2}> <img src={image7} alt="" /> </button>
+        <button className="btn " onClick={scrollRight2}><img src={image8} alt="" /></button>
       </div>
 
 

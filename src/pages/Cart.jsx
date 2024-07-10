@@ -3,10 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import  useStore  from '../useStore';
 import Cards from './Non-linked/Cards';
 import store from "../store.json"
-
+import { useUpdateStore } from '../useUpdateStore';
 const Cart = () => {
   const navigate = useNavigate();
   const { cred,data } = useStore();
+  
+  const { dataUp } = useUpdateStore();
   
 console.log(data);
   
@@ -29,7 +31,7 @@ function navCheckout(){
   
        
        {
-        (data.length!==0)?(  data.map((item) => (
+        (dataUp.length!==0)?(  dataUp.map((item) => (
            <Cards
            
            id={store[item].id}

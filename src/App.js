@@ -3,7 +3,7 @@ import './App.css';
 import Header from "./pages/head-cont/Header"
 import Footer from "./pages/head-cont/Footer"
 import Navbar from "./pages/head-cont/Navbar"
-import {Outlet,BrowserRouter,Routes,Route, Navigate} from "react-router-dom"
+import { Outlet, BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 import Home from "./pages/Home"
 import About from "./pages/About"
@@ -24,19 +24,23 @@ import Electronics from './pages/categories/Electronics';
 import Jewelery from './pages/categories/Jwellery';
 import Update from './pages/Auth/Update';
 import BillPayment from './pages/BillPayment';
+import Confirmation from './pages/Confirmation';
 
 
+const Layout = () => {
+  const location = useLocation();
+  const hideHeaderFooterNavbar = location.pathname === '/payment';
+  // const confirmation = location.pathname === '/paymentConfirmation';              
 
-const Layout = () => (
-  <>
-    <Header />
-    <Navbar/>
-    <Outlet />
-    <Footer/>
-  </>
-);
-
-
+  return (
+    <>
+      {hideHeaderFooterNavbar   && <Header /> }
+      {!hideHeaderFooterNavbar && <Navbar /> }
+      <Outlet />
+      {!hideHeaderFooterNavbar && <Footer /> }
+    </>
+  );
+};
 
 function App() {
   return (
@@ -63,6 +67,7 @@ function App() {
         <Route path="jewelery" element={<Jewelery />} />
         <Route path="update" element={<Update />} />
         <Route path="payment" element={<BillPayment />} />
+        <Route path="paymentConfirmation" element={<Confirmation />} />
 
         <Route path="*" element={<Error />} />
       </Route>

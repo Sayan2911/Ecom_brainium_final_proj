@@ -71,7 +71,7 @@ const Navbar = () => {
   return (
     <>
       <div className='navbar-container w-screen d-flex justify-content-between align-items-center mx-4 my-2'>
-        <div><h3>Exclusive</h3></div>
+        <div><h3 className='mx-4'>Exclusive</h3></div>
         <div className='navbar-links w-screen d-flex justify-content-between align-items-center mx-4 my-2'>
           <Link to="/home" className='text-dark text-decoration-none mx-4 my-2'>Home</Link>
           <Link to="/contact" className='text-dark text-decoration-none mx-4 my-2'>Contact</Link>
@@ -84,7 +84,7 @@ const Navbar = () => {
         </div>
       
 
-        <div className='navbar-actions w-screen d-flex justify-content-between align-items-center mx-4 my-2 gap-2'>
+        <div className='navbar-actions w-screen d-flex justify-content-between align-items-center mx-0 my-2 gap-2'>
 
 
        
@@ -106,10 +106,10 @@ const Navbar = () => {
         ) : null}
       </div>
     </div> */}
-     <div>
-      <input type="text" value={value} onChange={handleInputChange} />
-      <CiSearch size={30} onClick={handleSearch} />
-
+     <div  className=' bg-transparent form-control' >
+      <input type="text" value={value} onChange={handleInputChange} placeholder='what you looking for?'className=' bg-transparent outline-none'/>
+      
+      <CiSearch size={30} onClick={handleSearch}  />
       {value.trim() !== '' && (
         <div className='drop d-flex align-items-center justify-content-center flex-column'>
           {filteredItems.length > 0 ? (
@@ -142,23 +142,30 @@ const Navbar = () => {
               <div>{dataUp.length}</div>
             </div>
           </Link>
-          <div className='user-icon-container'>
-            <CiUser
-              size={25}
-              className='bgChange rrr'
-              onClick={() => setShowDialogue(!showDialogue)}
-            />
-            {showDialogue && (
-              <div className='dialogue-box d-flex flex-column'>
-                <Link to={"/update"} className='text-decoration-none text-white ' onClick={() => setShowDialogue(!showDialogue)}> <CiUser size={20} className='m-2'/>Manage My Account</Link>
-                <Link to={"/update"} className='text-decoration-none text-white'> <IoBagRemoveOutline size={20} className='m-2'/>My Account</Link>
-                <Link to={"/update"} className='text-decoration-none text-white' ><RxCrossCircled size={20} className='m-2'/>My Cancelation</Link>
-                <Link to={"/update"} className='text-decoration-none text-white'><CiStar size={20} className='m-2'/>My reviews</Link>
-                
-              </div>
-            )}
-          </div>
-          <div>welcome {name}</div>
+
+
+          {
+            (cred===true)?( <div className='user-icon-container'>
+              <CiUser
+                size={25}
+                className='bgChange rrr'
+                onClick={() => setShowDialogue(!showDialogue)}
+              />
+              {showDialogue && (
+                <div className='dialogue-box d-flex flex-column'>
+                  <Link to={"/update"} className='text-decoration-none text-white ' onClick={() => setShowDialogue(!showDialogue)}> <CiUser size={20} className='m-2'/>Manage My Account</Link>
+                  <Link to={"/update"} className='text-decoration-none text-white'> <IoBagRemoveOutline size={20} className='m-2'/>My Account</Link>
+                  <Link to={"/update"} className='text-decoration-none text-white' ><RxCrossCircled size={20} className='m-2'/>My Cancelation</Link>
+                  <Link to={"/update"} className='text-decoration-none text-white'><CiStar size={20} className='m-2'/>My reviews</Link>
+                  
+                </div>
+              )}
+            </div>):(console.log())
+          }
+          
+
+         
+          
         </div>
       </div>
     </>

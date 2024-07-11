@@ -70,3 +70,8 @@
   overflow: auto;
 
 }
+input {
+  outline: none;
+  border: none;
+  /* display: none; */
+}

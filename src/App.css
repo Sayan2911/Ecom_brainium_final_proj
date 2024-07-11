@@ -7,13 +7,17 @@
     left: 50%;
     transform: translateX(-50%);
     transition: bottom 3s ease-in-out; /* Add transition for smooth scrolling effect */
-    opacity: 0; /* Initially hidden */
+    opacity: 0;
+    /* Initially hidden */
   }
   
   .position-relative:hover .cart-button {
     bottom: 0px;
     width: 100%; /* Bring the button into view */
-    opacity: 1; /* Make the button visible */
+    opacity: 1;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+ /* Make the button visible */
   }
   .icon-container {
     width: 200px; /* Set the width and height to create a square */

@@ -34,8 +34,14 @@ console.log(data);
   
   return (
     <>
+    <div className='d-flex  align-items-center justify-content-between   m-5'>
+      <p className=''>Wishlist  ({data.length})</p>
+
+<button className='form-control m-1 px-5 py-2'  style={{width:'15%'}} onClick={()=>(pass())}> add to bag</button>
+
+</div>
     
-    <div className='container gap-2 d-flex flex-wrap d-flex align-items-center justify-content-center' style={{width:"100%"}}>
+    <div className='m-5 gap-4 d-flex flex-wrap d-flex align-items-center justify-content-start' style={{width:"93%"}}>
     {
      (data.length!==0)?( data.map((item)=>{
         
@@ -65,11 +71,7 @@ console.log(data);
     </div>
 
 
-   <div className='d-flex  align-items-center justify-content-center  '>
-
-   <button className='btn btn-primary m-1 ' onClick={()=>(pass())}> add to bag</button>
-
-</div>
+   
     <div>
     <RelatedItems categories={store[Math.floor(Math.random() * 13)].category}/>
     </div>

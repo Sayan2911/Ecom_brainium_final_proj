@@ -50,10 +50,10 @@ const Cards = ({id,image,title,price,star,rates}) => {
 
   return (
     
-    <div className="col-lg-3 col-md-6 col-sm-12 mb-4 d-flex align-items-start" style={{width:"15vw",  }}>
-    <div className="card p-2" style={{ width: "100%", height:"100%", display: 'flex', flexDirection: 'column' }}>
+    <div className="col-lg-3 col-md-6 col-sm-12 mb-4 d-flex align-items-start border-none" style={{width:"15vw", backgroundColor:"transparent"  }}>
+    <div className="card p-2 border" style={{ width: "100%", height:"100%", display: 'flex', flexDirection: 'column' ,backgroundColor:"transparent" }}>
       <div className="position-relative">
-        <div className='position-absolute p-1  px-2 rounded' style={{backgroundColor:"#DB4444", color:"white" ,fontSize:"12px"}}>
+        <div className='position-absolute p-1  px-2 m-2 rounded' style={{backgroundColor:"#DB4444", color:"white" ,fontSize:"12px"}}>
           -{Math.floor(init)}%
         </div>
         <div className='position-absolute top-0 end-0 d-flex flex-column p-2'>
@@ -64,16 +64,22 @@ const Cards = ({id,image,title,price,star,rates}) => {
             </div>
           <IoEyeOutline onClick={()=>(view())}  />
         </div>
-        <img className="card-img-top object-fit-scale p-2" src={image} alt="none" style={{ height: '150px', width: '100%' ,marginBottom:"3vw" }} />
+
+    <div className="p-3" style={{ height: '200px', width: '100%' , backgroundColor:"#f5f5f5"}} >
+
+        <img className="card-img-top object-fit-scale p-2" src={image} alt="none" style={{ height: '150px', width: '100%' ,paddingBottom:"3vw", backgroundColor:"#f5f5f5"}} />
+    </div>
+
+
         <button className="position-absolute btn btn-dark text-white cart-button" onClick={()=>(addCart2())} >
         {buttonText}
         </button>
       </div>
       <div className="card-body d-flex justify-content-center align-items-start flex-column flex-grow-1" style={{ height: '130px', width: '100%'  }} >
-        <h6 className="card-title ">{title}</h6>
+        <h6 className="card-title fw-bold ">{title}</h6>
         <div className='d-flex gap-2  ' style={{height:"2.5vh",  }}>
-          <p className="card-text text-success ">${price}</p>
-          <p className="card-text text-danger text-decoration-line-through ">${Math.floor(num2)}</p>
+          <p className="card-text text-danger ">${price}</p>
+          <p className="card-text text-secondary text-decoration-line-through ">${Math.floor(num2)}</p>
         </div>
         <div className="d-flex">
           <Star value={star} />

@@ -80,13 +80,18 @@ const Home = () => {
   return (
    <>
 
-    <div className="d-flex mx-4  border-top " style={{ width: '93.5vw' }}>
+   <hr className="m-0" />
+  
+  <div className="mx-4">
+
+ 
+    <div className="d-flex px-4  " style={{ width: '100vw' }}>
 
     
-    <div className="d-flex justify-content-start align-items-start  flex-column border-right   pt-3  " style={{ width: '40%' }}>
+    <div className="d-flex justify-content-start align-items-start  flex-column    pt-3  " style={{ width: '39%' ,borderRight:' 1px solid #DEE2E6'}}>
   
-      <Link to={"/womens"}  className=" text-decoration-none m-1 text-dark" >Women's Fashion&#160; &#160;  &#160; &#160;  &#160; &#160; &#160; &#160; 〉 </Link>
-      <Link to={"/mens"} className="text-decoration-none m-1 text-dark">Men's Fashion  &#160; &#160; &#160; &#160; &#160; &#160;   &#160; &#160;  &#160;  &#160; &#160;  〉</Link>
+      <Link to={"/womens"}  className=" text-decoration-none m-1 text-dark" >Women's Fashion&#160;   &#160; &#160;  &#160; &#160; &#160; &#160; 〉 </Link>
+      <Link to={"/mens"} className="text-decoration-none m-1 text-dark">Men's Fashion  &#160; &#160; &#160; &#160; &#160;    &#160; &#160;  &#160;  &#160; &#160;  〉</Link>
       <Link to={"/electronics"} className="text-decoration-none m-1 text-dark">Electronics</Link>
       <Link to={"/jewelery"} className="text-decoration-none m-1 text-dark">Home & Lifestyle</Link>
       <Link to={"/mens"} className=" text-decoration-none m-1 text-dark">Medicine</Link>
@@ -96,20 +101,20 @@ const Home = () => {
       <Link to={"/jewelery"} className="text-decoration-none m-1 text-dark">Health & beauty</Link>
     </div>
 
-      <div className="  d-flex justify-content-center align-items-center m-4  " style={{ width: '80%' }}><Swiper/> </div>
+      <div className="  d-flex justify-content-center align-items-center  mt-4   " style={{ width: '80%' ,height:"38vh",marginRight:" 2.5rem",marginLeft:"1.5rem"}}><Swiper/> </div>
     
       </div>
 
-      <div className="m-3 d-flex justify-content-start align-items-center h-16 w-full ">
-        <div className=" rounded mx-2" > <img src={image6} alt="none" /> </div>
-        <p className="m-3 text-danger">Today's </p>
+      <div className="m-4 d-flex justify-content-start align-items-center h-16 w-full ">
+        <div className=" rounded " > <img src={image6} alt="none" /> </div>
+        <p className="m-2 text-danger">Today's </p>
       </div>
 
 
 
-      <div className="mx-3 d-flex justify-content-center align-items-center h-16 w-full">
+      <div className=" d-flex justify-content-center align-items-center h-16 w-full" style={{marginLeft:'1.5rem' }}>
        
-        <h2 className=" m-0 mx-2" style={{width:"20%"  }} >Flash Sales </h2>
+        <h2 className=" m-0 " style={{width:"20%" }} >Flash Sales </h2>
         <div style={{width:"40%"}} className="mb-4"> 
 
 <Timer/>
@@ -122,10 +127,10 @@ const Home = () => {
      
 
 
-      <div>
+      <div className="border-bottom " style={{marginLeft:"1.5rem"}}>
       <div className="d-flex justify-content-between align-items-center">
         
-        <div className="d-flex m-2 p-2 gap-3 overflow-hidden" style={{ scrollBehavior: 'smooth' }} ref={containerRef}>
+        <div className="d-flex  gap-3 overflow-hidden" style={{ scrollBehavior: 'smooth' }} ref={containerRef}>
           {store.slice(0, 10).map((item, index) => (
             <Cards
               id={item.id}
@@ -143,24 +148,30 @@ const Home = () => {
       </div>
       <div className="d-flex align-item-center justify-content-center">
 
-        <Link className="btn btn-danger" to={"/allProduct"} >Show More</Link>
+        <Link className="btn btn-danger px-4" to={"/allProduct"} style={{marginBottom:"3rem"}} >View All Products</Link>
       </div>
     </div>
 
 
+          <div className="border-bottom m-4">
 
-    <div className="m-3 d-flex justify-content-start align-items-center h-16 w-full">
-    <div className=" rounded mx-2" > <img src={image6} alt="none" /> </div>
+        
+    <div className=" d-flex justify-content-start align-items-center h-16 w-full">
+    <div className=" rounded " > <img src={image6} alt="none" /> </div>
         <p className="m-3 text-danger">Categories</p>
       </div>
 
-    <div className="m-3 d-flex justify-content-between align-items-center h-16 w-full">
+    <div className=" d-flex justify-content-between align-items-center h-16 w-full">
         {/* <div className=" rounded" style={{width:"2vh" ,height:"6vh" ,backgroundColor:"red"}} > </div> */}
-        <h1 className="m-3  font-weight-bold">Browse by Categories </h1>
+        <h1 className="my-3   font-weight-bold">Browse by Categories </h1>
       
+        <div className="d-flex  justify-content-end w-full" style={{width:"40%" ,marginLeft:"20vh" }} >
+      <button className="btn "> <img src={image7} alt="" /> </button>
+      <button className="btn " ><img src={image8} alt="" /></button>
+      </div>
       </div>
 
-      <div className="p-4 w-full d-flex align-items-center justify-content-center">
+      <div className="  gap-1 w-full d-flex align-items-center justify-content-center mb-5" >
       <div className="border p-4 icon-container bgChange " >
        <Link to={"/mens"}> <img src={phone} alt="" className="changeColor" /> </Link> 
       </div>
@@ -177,18 +188,24 @@ const Home = () => {
       <Link to={"/jewelery"}> <img src={headphone} alt="" className="changeColor" /> </Link> 
       </div>
       <div className="border p-4 icon-container bgChange">
-      <Link to={"/jewelery"}> <img src={game} alt="" className="changeColor" /> </Link> 
+      <Link to={"/jewelery"}> <img src={game} alt="" className="changeColor " /> </Link> 
       </div>
     </div>
+    </div>
 
-    <div className="m-3 d-flex justify-content-start align-items-center h-16 w-full">
+
+<div className="m-4">
+
+
+
+    <div className=" d-flex justify-content-start align-items-center h-16 w-full">
     <div className=" rounded mx-2" > <img src={image6} alt="none" /> </div>
         <p className="m-3 text-danger">This Month </p>
+     
       </div>
-
-      <div className="m-3 d-flex justify-content-between align-items-center h-16 w-full">
+      <div className=" d-flex justify-content-between align-items-center h-16 w-full">
         {/* <div className=" rounded" style={{width:"2vh" ,height:"6vh" ,backgroundColor:"red"}} > </div> */}
-        <h1 className="m-3  font-weight-bold">Best Selling Products  </h1>
+        <h1 className="my-3 mx-1  fw-bold">Best Selling Products  </h1>
         <div className="d-flex align-item-center justify-content-center">
 
         <Link className="btn btn-danger" to={"/allProduct"} >View All</Link>
@@ -197,9 +214,9 @@ const Home = () => {
       </div>
 
 
-      <div className="container p-3 min-vh-100 overflow-auto" >
-      <div className="row d-flex justify-content-center align-items-stretch h-100 m-4 ">
-      <div className="d-flex m-5 p-2 gap-3 flex-row " >
+      <div className="   overflow-hidden mb-5" >
+      <div className="row d-flex justify-content-center ">
+      <div className="d-flex  gap-2 flex-row justify-content-between ">
           {store.slice(4, 9).map((item, index) => (
             <Cards
               key={index}
@@ -216,9 +233,13 @@ const Home = () => {
         </div>
         </div>
 
+        </div>
 
-          <div className="d-flex align-items-center justify-content-center">
-            <img src={image2} alt="none" />
+
+
+
+          <div className="d-flex align-items-center justify-content-center m-4" style={{width:"92vw"}}>
+            <img src={image2} alt="none"style={{width:"100%"}} />
           </div>
 
           <div className="m-3 d-flex justify-content-start align-items-center h-16 w-full">
@@ -228,7 +249,7 @@ const Home = () => {
 
       <div className="m-3 d-flex justify-content-between align-items-center h-16 w-full">
         {/* <div className=" rounded" style={{width:"2vh" ,height:"6vh" ,backgroundColor:"red"}} > </div> */}
-        <h1 className="m-3  font-weight-bold">Explore Our Products </h1>
+        <h1 className="my-3 mx-1  font-weight-bold">Explore Our Products </h1>
         <div className="d-flex align-item-center justify-content-center">
 
 
@@ -275,7 +296,7 @@ const Home = () => {
       </div>
       <div className="d-flex align-item-center justify-content-center">
 
-<Link className="btn btn-danger" to={"/allProduct"} >View All Products</Link>
+<Link className="btn btn-danger" to={"/allProduct"} style={{marginBottom:"5rem"}}>View All Products</Link>
 </div>
 
 <div>
@@ -287,15 +308,15 @@ const Home = () => {
 
     <div className="m-3 d-flex justify-content-between align-items-center h-16 w-full">
         {/* <div className=" rounded" style={{width:"2vh" ,height:"6vh" ,backgroundColor:"red"}} > </div> */}
-        <h1 className="m-3  font-weight-bold">New Arrival </h1>
+        <h1 className="m-2  font-weight-bold">New Arrival </h1>
       
       </div>
 </div>
+          
 
-
-          <div className="m-3 d-flex justify-content-center align-items-center">
-          <img src={image3} alt="none" className="m-3 "/>
-          <img src={image4} alt="none" className="m-3 " />
+          <div className=" d-flex justify-content-center align-items-center p-1" style={{width:'94vw'}}>
+          <img src={image3} alt="none" className="m-3 " style={{width:'50%'}}/>
+          <img src={image4} alt="none" className="m-3 " style={{width:'50%'}}/>
           </div>
 
           <div className="m-5 d-flex justify-content-center align-items-center">
@@ -303,7 +324,7 @@ const Home = () => {
 
           </div>
 
-        
+          </div> 
    </>
   )
 }

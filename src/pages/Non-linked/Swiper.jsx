@@ -24,12 +24,12 @@ export default function App() {
   return (
     <>
       <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
-        <SwiperSlide><img src={image1} alt='none' style={{width:"100vw" ,height:"50vh"}} className=''/></SwiperSlide>
-        <SwiperSlide><img src={image2} alt='none' style={{width:"100vw" ,height:"50vh"}} className=''/></SwiperSlide>
-        <SwiperSlide><img src={image3} alt='none' style={{width:"100vw" ,height:"50vh"}} className=''/></SwiperSlide>
-        <SwiperSlide><img src={image4} alt='none' style={{width:"100vw" ,height:"50vh"}} className=''/></SwiperSlide>
-        <SwiperSlide><img src={image5} alt='none' style={{width:"100vw" ,height:"50vh"}} className=''/></SwiperSlide>
-        <SwiperSlide><img src={image6} alt='none' style={{width:"100vw" ,height:"50vh"}} className=''/></SwiperSlide>
+        <SwiperSlide><img src={image1} alt='none' style={{width:"100vw" ,height:"38vh"}} className=''/></SwiperSlide>
+        <SwiperSlide><img src={image2} alt='none' style={{width:"100vw" ,height:"38vh"}} className=''/></SwiperSlide>
+        <SwiperSlide><img src={image3} alt='none' style={{width:"100vw" ,height:"38vh"}} className=''/></SwiperSlide>
+        <SwiperSlide><img src={image4} alt='none' style={{width:"100vw" ,height:"38vh"}} className=''/></SwiperSlide>
+        <SwiperSlide><img src={image5} alt='none' style={{width:"100vw" ,height:"38vh"}} className=''/></SwiperSlide>
+        <SwiperSlide><img src={image6} alt='none' style={{width:"100vw" ,height:"38vh"}} className=''/></SwiperSlide>
         
         
   

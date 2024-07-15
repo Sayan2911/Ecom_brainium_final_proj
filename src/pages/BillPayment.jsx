@@ -7,32 +7,68 @@ import 'react-toastify/dist/ReactToastify.css';
 import CreditCardInput from 'react-credit-card-input';
 import banks from "../images/Frame 834.png"
 import PaymentForm from './PaymentForm';
-
+// import { useInvoice } from './Non-linked/Invoice';
 import { useNavigate } from 'react-router-dom';
 const BillPayment = () => {
   const navigate = useNavigate();
-const notify = () => toast.success("Order submitted succsesfully");
+const notify = (detailing) => toast.success("Order "+ detailing +"succsesfully");
 
 
 const [check, setCheck] = useState(false)
+const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
+
 
     const {resetCartData }=usecartStore()
     const {resetData }=useStore()
 
+    const [formData, setFormData] = useState({
+      name: '',
+      streetAddress: '',
+      floorApartmentNo: '',
+      townCity: '',
+      phoneNumber: '',
+      emailAddress: '',
+    });
+
+
     function reset(){
-        resetCartData()
-        resetData()
-        navigate('/paymentConfirmation')
+      if(selectedPaymentMethod==="banks"){
+
+       if( formData.name.length!==0 && formData.streetAddress.length!==0 && formData.floorApartmentNo.length!==0 && formData.townCity.length!==0 && formData.phoneNumber.length!==0 && formData.emailAddress.length){
+          console.log(formData.name,formData.streetAddress,formData.floorApartmentNo,formData.townCity,formData.phoneNumber,formData.emailAddress)
+          notify(" details filled ")
+          
+          
+          
+        
+          navigate('/creditCards')
+       
+      
+      }
+      
+        else
+         console.log("please fill details")
+
+        
+      }
+      else{
+         if( formData.name.length!==0 && formData.streetAddress.length!==0 && formData.floorApartmentNo.length!==0 && formData.townCity.length!==0 && formData.phoneNumber.length!==0 && formData.emailAddress.length){
+          console.log(formData.name,formData.streetAddress,formData.floorApartmentNo,formData.townCity,formData.phoneNumber,formData.emailAddress)
+        notify(" submitted ")
+        console.log(formData.name,formData.streetAddress,formData.floorApartmentNo,formData.townCity,formData.phoneNumber,formData.emailAddress);
+        
+        setInterval(() => {
+          navigate('/paymentConfirmation')  
+        }, 3000);
+         }
+
+         else
+         console.log(" submmited ")
+
+        }
+        
     }
 
-  const [formData, setFormData] = useState({
-    name: '',
-    streetAddress: '',
-    floorApartmentNo: '',
-    townCity: '',
-    phoneNumber: '',
-    emailAddress: '',
-  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -46,28 +82,19 @@ const [check, setCheck] = useState(false)
     e.preventDefault();
     // Display a toast notification (or alert in this case)
 
-    console.log(
-      formData
-      
-    );
     
-notify()
-    // Clear the form fields
-    setFormData({
-      name: '',
-      streetAddress: '',
-      floorApartmentNo: '',
-      townCity: '',
-      phoneNumber: '',
-      emailAddress: '',
-    });
+      // console.log(formData.name,formData.streetAddress,formData.floorApartmentNo,formData.townCity,formData.phoneNumber,formData.emailAddress);
+      
+   
+   
+   
    
    
   };
   const {  getTotalValue } = usecartStore();
 
 
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
+
 
   const handlePaymentMethodChange = (e) => {
     setSelectedPaymentMethod(e.target.value);
@@ -78,6 +105,9 @@ notify()
             
              
   }, [check])
+
+
+
 
   return (
     <>
@@ -242,6 +272,8 @@ notify()
           value='cash'
           className='mx-2'
           onChange={handlePaymentMethodChange}
+         
+          checked="checked"
         />
         Cash on Delivery
       </label>
@@ -253,21 +285,13 @@ notify()
             value='banks'
             className='m-2'
             onChange={handlePaymentMethodChange}
+            
           />
           Banks
         </label>
         <img src={banks} alt='banks' />
       </div>
-      {selectedPaymentMethod === 'banks' && (
-        <div>
-
-          
-            
-            
-           <PaymentForm/>
-          
-        </div>
-      )}
+    
     </div>
 
 </div>

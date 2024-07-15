@@ -5,18 +5,20 @@ import Bill from './Bill';
 import store from "../store.json"
 import CheckoutCart from './CheckoutCart';
 import { useUpdateStore } from '../useUpdateStore';
+import { ToastContainer, toast } from 'react-toastify';
 const Checkout = () => {
   const navigate = useNavigate();
   const { cred,data } = useStore();
   const { dataUp } = useUpdateStore();
 
-  
+   
   useEffect(() => {
     if (!cred) {
       navigate('/login');
     }
   }, [cred, navigate]);
 
+  const notify = () => toast.success("Order updated succsesfully")
   return (
     <>
     <div className='d-flex  '>
@@ -24,6 +26,7 @@ const Checkout = () => {
     <div style={{width:"70%"}} >
 
       <table style={{ width: '90%' }} className='m-5'>
+    <ToastContainer />
 
             <thead style={{ width: '100%' }} >
               <tr style={{ width: '100%' }}>
@@ -62,7 +65,7 @@ const Checkout = () => {
 
     <div className='d-flex justify-content-between m-5'>
       <div className='border p-2  'role='button' onClick={()=>(navigate("/home"))}>return to shop</div>
-      <div className='border p-2' role='button'>Update to cart</div>
+      <div className='border p-2' role='button'  onClick={()=>(notify() )} >Update to cart</div>
       
     </div>
 

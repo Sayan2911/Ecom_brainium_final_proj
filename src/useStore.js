@@ -25,7 +25,9 @@ const useStore = create((set) => ({
 
   cred: true,
   setCred: (newCred) => set({ cred: newCred }),
-  name: '',
+
+
+  name:'',
   email: '',
   password: '',
   setName: (name) => localStorage.setItem(set({ name })),

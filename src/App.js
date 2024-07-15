@@ -25,19 +25,20 @@ import Jewelery from './pages/categories/Jwellery';
 import Update from './pages/Auth/Update';
 import BillPayment from './pages/BillPayment';
 import Confirmation from './pages/Confirmation';
+import PaymentForm from './pages/PaymentForm';
 
 
 const Layout = () => {
   const location = useLocation();
   const hideHeaderFooterNavbar = location.pathname === '/payment';
-  // const confirmation = location.pathname === '/paymentConfirmation';              
+  const confirmation = location.pathname === '/paymentConfirmation';              
 
   return (
     <>
-      {hideHeaderFooterNavbar   && <Header /> }
-      {!hideHeaderFooterNavbar && <Navbar /> }
+      { (!confirmation  && <Header /> )|| ( <Header />&& !hideHeaderFooterNavbar ) }
+      {(!confirmation  && <Navbar />)|| ( <Navbar />&& !hideHeaderFooterNavbar )  }
       <Outlet />
-      {!hideHeaderFooterNavbar && <Footer /> }
+      {(!confirmation  &&  <Footer /> )|| (  <Footer />&& !hideHeaderFooterNavbar )  }
     </>
   );
 };
@@ -68,6 +69,7 @@ function App() {
         <Route path="update" element={<Update />} />
         <Route path="payment" element={<BillPayment />} />
         <Route path="paymentConfirmation" element={<Confirmation />} />
+        <Route path="creditCards" element={<PaymentForm />} />
 
         <Route path="*" element={<Error />} />
       </Route>

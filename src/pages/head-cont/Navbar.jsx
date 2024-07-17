@@ -80,7 +80,10 @@ const Navbar = () => {
           {
             (cred!==true)?(<Link to="/signup" className='text-dark text-decoration-none mx-4 my-2'>Sign Up</Link>):(console.log())
           }
-          
+          {
+
+          (cred===true)?(<Link to="/order" className='text-dark text-decoration-none mx-4 my-2'>My Orders</Link>):(console.log())
+          }
         </div>
       
 

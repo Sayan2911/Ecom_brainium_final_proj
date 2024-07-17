@@ -10,7 +10,9 @@ import usecartStore from '../../usecartStore';
 import store from "../../store.json"
 import { useUpdateStore } from '../../useUpdateStore';
 
+
 const Cards = ({id,image,title,price,star,rates}) => {
+
   const navigate = useNavigate();
   const { cred, setData  } = useStore();
   const {  setDataUp  } = useUpdateStore();
@@ -34,6 +36,7 @@ const Cards = ({id,image,title,price,star,rates}) => {
 
   const addCart2 = () => {
     setDataUp(id-1)
+    
     // navigate("/cart")
     setButtonText("Added to Cart");
     addItemByPriceData(price) 

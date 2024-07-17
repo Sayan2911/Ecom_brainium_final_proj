@@ -18,5 +18,6 @@ export const useUpdateStore=create((set)=>({
         const filteredData = state.dataUp.filter(item => item !== identifier);
         return { dataUp: filteredData };
       }),
+      resetDataUp: () => set({ dataUp: [] }),
       
 }))

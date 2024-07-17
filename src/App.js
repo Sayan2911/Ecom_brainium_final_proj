@@ -26,6 +26,8 @@ import Update from './pages/Auth/Update';
 import BillPayment from './pages/BillPayment';
 import Confirmation from './pages/Confirmation';
 import PaymentForm from './pages/PaymentForm';
+import MyOrders from './pages/MyOrders';
+import MyOrderCard from './pages/MyOrderCard';
 
 
 const Layout = () => {
@@ -70,6 +72,8 @@ function App() {
         <Route path="payment" element={<BillPayment />} />
         <Route path="paymentConfirmation" element={<Confirmation />} />
         <Route path="creditCards" element={<PaymentForm />} />
+        <Route path="order" element={<MyOrders />} />
+        <Route path="order/orderDetails/:id" element={<MyOrderCard />} />
 
         <Route path="*" element={<Error />} />
       </Route>

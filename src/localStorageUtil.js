@@ -8,3 +8,6 @@ export const getLocalStorageItem = (key) => {
   const item = localStorage.getItem(key);
   return item ? JSON.parse(item) : null;
 };
+export const localStorageClear=()=>{
+      localStorage.clear()
+}

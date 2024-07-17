@@ -20,17 +20,17 @@ const useStore = create((set) => ({
     return { data: filteredData };
   }),
 
-  resetData: () => set({ data: 0 }),
+  resetData: () => set({ data: [] }),
 
 
-  cred: true,
+  cred: false,
   setCred: (newCred) => set({ cred: newCred }),
 
 
   name:'',
   email: '',
   password: '',
-  setName: (name) => localStorage.setItem(set({ name })),
+  setName: (name) => set({ name }),
   setEmail: (email) => set({ email }),
   setPassword: (password) => set({ password }),
 }));

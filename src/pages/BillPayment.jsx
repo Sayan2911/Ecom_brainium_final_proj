@@ -9,7 +9,9 @@ import banks from "../images/Frame 834.png"
 import PaymentForm from './PaymentForm';
 // import { useInvoice } from './Non-linked/Invoice';
 import { useNavigate } from 'react-router-dom';
+import { useOrderStorage } from './useOrderStorage';
 const BillPayment = () => {
+  const {  setUserName,setUserStreetAddress,setUserFloorNo,setUserCity,setUserPhoneNumber,setUserMail} = useOrderStorage();
   const navigate = useNavigate();
 const notify = (detailing) => toast.success("Order "+ detailing +"succsesfully");
 
@@ -37,10 +39,13 @@ const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
        if( formData.name.length!==0 && formData.streetAddress.length!==0 && formData.floorApartmentNo.length!==0 && formData.townCity.length!==0 && formData.phoneNumber.length!==0 && formData.emailAddress.length){
           console.log(formData.name,formData.streetAddress,formData.floorApartmentNo,formData.townCity,formData.phoneNumber,formData.emailAddress)
           notify(" details filled ")
-          
-          
-          
-        
+          setUserName( formData.name)
+          setUserStreetAddress(formData.streetAddress)
+          setUserFloorNo(formData.floorApartmentNo)
+          setUserCity(formData.townCity)
+          setUserPhoneNumber(formData.phoneNumber)
+          setUserMail(formData.emailAddress)
+    
           navigate('/creditCards')
        
       
@@ -57,9 +62,15 @@ const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
         notify(" submitted ")
         console.log(formData.name,formData.streetAddress,formData.floorApartmentNo,formData.townCity,formData.phoneNumber,formData.emailAddress);
         
-        setInterval(() => {
+        setUserName( formData.name)
+        setUserStreetAddress(formData.streetAddress)
+        setUserFloorNo(formData.floorApartmentNo)
+        setUserCity(formData.townCity)
+        setUserPhoneNumber(formData.phoneNumber)
+        setUserMail(formData.emailAddress)
+     
           navigate('/paymentConfirmation')  
-        }, 3000);
+       
          }
 
          else
@@ -80,15 +91,6 @@ const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Display a toast notification (or alert in this case)
-
-    
-      // console.log(formData.name,formData.streetAddress,formData.floorApartmentNo,formData.townCity,formData.phoneNumber,formData.emailAddress);
-      
-   
-   
-   
-   
    
   };
   const {  getTotalValue } = usecartStore();
@@ -120,7 +122,7 @@ const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
   
     <div className="container  " style={{width:"40%"}} >
       <h1>Billing Details</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} action='post'>
         <div className="mb-3">
           <label className="form-label">Name</label>
           <input 

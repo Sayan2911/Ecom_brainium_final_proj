@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Cards from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css';
 import { useNavigate } from 'react-router-dom';
+import usecartStore from '../usecartStore';
 
 const PaymentForm = () => {
   const navigate = useNavigate();
@@ -81,9 +82,10 @@ const PaymentForm = () => {
       navigate('/paymentConfirmation');
     }
   };
-
+  const {  getTotalValue } = usecartStore();
   return (
     <div id="PaymentForm" className='container rounded d-flex justify-content-center align-items-center flex-column m-5'>
+      <h3>your total bill amount is {getTotalValue()}$</h3>
       <Cards
         cvc={state.cvc}
         expiry={state.expiry}
@@ -92,7 +94,7 @@ const PaymentForm = () => {
         number={state.number}
       />
       <form className='d-flex align-items-center justify-content-center flex-column' onSubmit={handleSubmit}>
-        <h3>Card info</h3>
+       
         <div className='d-flex align-items-center justify-content-center flex-column gap-1 my-3 border p-3 rounded'>
           <input
             type="tel"

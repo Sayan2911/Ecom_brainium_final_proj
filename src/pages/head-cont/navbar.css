@@ -64,9 +64,9 @@
   background-color: white;
   border: 1px solid rgb(102, 102, 102);
   position: absolute;
-  top: 45px;
+  top: 17vh;
   z-index: 9;
-  right: 279px;
+  right: 14vw;
   overflow: auto;
 
 }

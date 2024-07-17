@@ -3,15 +3,21 @@
 import React, { useEffect, useState } from 'react';
 import { setLocalStorageItem, getLocalStorageItem } from '../localStorageUtil';
 import usecartStore from '../usecartStore';
-import { useUpdateStore } from '../useUpdateStore';
+// import { useUpdateStore } from '../useUpdateStore';
+import { useOrderStorage } from './useOrderStorage';
 const CheckoutCart = ({ title, price }) => {
   const { addItemByPriceData, removeItemByPriceData } = usecartStore();
-  const { deleteDataUp } = useUpdateStore();
+  // const { deleteDataUp } = useUpdateStore();
   const [quantity, setQuantity] = useState(getLocalStorageItem(title) || 1);
+  const {  setProductQty} = useOrderStorage();
 
   useEffect(() => {
     setLocalStorageItem(title, quantity);
-  }, [quantity, title]);
+    setProductQty(  quantity)
+  }, [ title,quantity]);
+  
+
+
 
   const handleIncrement = () => {
     setQuantity(prevQuantity => prevQuantity + 1);

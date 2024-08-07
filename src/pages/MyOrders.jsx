@@ -44,7 +44,12 @@ const MyOrders = () => {
       <div className='d-flex align-items-end ' style={{width:"50%"}}>
     
       <img src={fetchData[0].image} alt="none" className='p-2' style={{width:"50px",height:"60px"}} />
-      <p>{fetchData[0].title}</p>
+      <p>{fetchData[0].title}  </p>
+      
+      </div>
+
+      <div>
+      <p>X{orderData.ProductQty[fetchData[0].title]} </p>
       </div>
     
       <div className='d-flex align-items-end  justify-content-end  ' style={{width:"20%"}}>
@@ -52,11 +57,13 @@ const MyOrders = () => {
       <p><Star value={fetchData[0].rating.rate}/></p>
       <p>{fetchData[0].rating.rate}</p>
       <p>({fetchData[0].rating.count})</p>
+
     
       </div>
     
       <div className='d-flex align-items-end '>
       <p>${fetchData[0].price}</p>
+      
       </div>
       <p className='text-success'>ordered on {new Date().getDate()}/{new Date().getMonth()}</p>
       

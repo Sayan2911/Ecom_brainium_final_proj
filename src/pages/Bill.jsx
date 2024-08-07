@@ -1,10 +1,13 @@
 import React from 'react'
 import usecartStore from '../usecartStore';
 import { useNavigate } from 'react-router-dom';
+import useStore from '../useStore';
 
 const Bill = () => {
 
   const {  getTotalValue } = usecartStore();
+  const {data}=useStore()
+  console.log(data);
   const navigate = useNavigate();
 
   function navToPayment(){

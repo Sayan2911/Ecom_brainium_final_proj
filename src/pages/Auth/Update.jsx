@@ -2,7 +2,7 @@ import React from 'react'
 import useStore from '../../useStore'
 
 const Update = () => {
-    const {name}=useStore()
+    const {name ,email}=useStore()
   return (
     <>
     <div className='m-5 d-flex justify-content-between align-items-center'>
@@ -41,13 +41,13 @@ const Update = () => {
                 <div className="col-md-6">
                     <div className="form-group">
                         <label for="firstName">First Name</label>
-                        <input type="text" className="form-control" id="firstName" placeholder="Enter first name"/>
+                        <input type="text" className="form-control" id="firstName" placeholder="Enter first name" value={name}/>
                     </div>
                 </div>
                 <div className="col-md-6">
                     <div className="form-group">
                         <label for="lastName">Last Name</label>
-                        <input type="text" className="form-control" id="lastName" placeholder="Enter last name"/>
+                        <input type="text" className="form-control" id="lastName" placeholder="Enter last name" value={name}/>
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@ const Update = () => {
                 <div className="col-md-6">
                     <div className="form-group">
                         <label for="email">Email</label>
-                        <input type="email" className="form-control" id="email" placeholder="Enter email"/>
+                        <input type="email" className="form-control" id="email" placeholder="Enter email" value={email}/>
                     </div>
                 </div>
                 <div className="col-md-6">

@@ -27,9 +27,9 @@ const useStore = create((set) => ({
   setCred: (newCred) => set({ cred: newCred }),
 
 
-  name:'',
-  email: '',
-  password: '',
+  name:[],
+  email: [],
+  password: [],
   setName: (name) => set({ name }),
   setEmail: (email) => set({ email }),
   setPassword: (password) => set({ password }),

@@ -40,7 +40,7 @@ const Checkout = () => {
       </table>
 
       {
-        dataUp.map((item)=>(
+        dataUp.map((item,key)=>(
 
           <CheckoutCart 
           title={store[item].title}

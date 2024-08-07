@@ -11,7 +11,7 @@ import { useOrderStorage } from './useOrderStorage';
 var val=null
 const MyOrderCard = () => {
 
-  const {  userData} = useOrderStorage();
+  const {  userData,orderData} = useOrderStorage();
 
   var {id}=useParams()
    console.log(id);
@@ -25,7 +25,7 @@ const MyOrderCard = () => {
    } else {
      console.log('Item not found');
    }
- 
+ console.log(orderData.ProductQty[orderData.ProductQty.length-orderData.ProductId[0].indexOf(val.id) ]);
 
 
   return (
@@ -64,9 +64,31 @@ const MyOrderCard = () => {
 
     <div className=''>
     <h2>View order details</h2>
-    <p>Order date      {new Date().getDate()}/{new Date().getMonth()}/{new Date().getFullYear()}</p>
-    <p>Order#     {Math.floor(Math.random()*7*100000000000)}</p>
-    <p>Order total   ${val.price}()</p>
+
+<div>
+<div className='d-flex justify-content-between'>
+    <p>Order date   </p>
+    <p>   {new Date().getDate()}/{new Date().getMonth()}/{new Date().getFullYear()}</p>
+    </div>
+
+
+    <div className='d-flex justify-content-between'>
+    <p>Order#  </p>
+     <p>  {Math.floor(Math.random()*7*100000000000)}</p>
+    </div>
+
+
+    <div className='d-flex justify-content-between'>
+    <p>Order total </p> 
+    <p>  ${val.price*(orderData.ProductQty[val.title]) }({orderData.ProductQty[val.title]} )</p>
+    </div>
+
+</div>
+    
+
+
+   
+    
     </div>
 
 
@@ -89,12 +111,31 @@ const MyOrderCard = () => {
 
 <div>
 
-
+{/* orderData.ProductQty.length-(orderData.ProductId.indexOf(val.id)) */}
     <div className='' style={{textAlign:"right"} }>
     <h2>Order summary</h2>
-    <p>${val.price}  Order price </p>
-    <p>1   OrderQty  </p>
-    <p>${val.price}   Order total</p>
+
+<div>
+
+      <div className='d-flex justify-content-between'>
+          <p>  Order price </p>
+          <p>${val.price} </p>
+      </div>
+
+      <div className='d-flex justify-content-between'>
+      <p> OrderQty  </p>
+      <p>{orderData.ProductQty[val.title]} </p> 
+      </div>
+
+      <div className='d-flex justify-content-between'>
+      <p> Order total</p>
+      <p>${(val.price)*(orderData.ProductQty[val.title])}</p> 
+      </div>
+
+</div>
+
+
+   
     </div>
 
 
@@ -102,7 +143,7 @@ const MyOrderCard = () => {
         <div style={{width:"100%", textAlign:"right"} } className=''>
           <h2>Payment Info</h2>      
         <div>
-          <p> Cash on delivary</p>
+          <p>{ userData.UserPaymentStat}</p>
       </div>
     
         </div>

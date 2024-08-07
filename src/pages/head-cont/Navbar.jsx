@@ -7,16 +7,22 @@ import './navbar.css'; // Create a separate CSS file for styles
 import { IoBagRemoveOutline } from "react-icons/io5";
 import { RxCrossCircled } from "react-icons/rx";
 import { CiStar } from "react-icons/ci";
+import { IoIosLogOut } from "react-icons/io";
 import store from "../../store.json"
 import SearchComponent from './Search';
 import { useUpdateStore } from '../../useUpdateStore';
 import { useNavigate } from 'react-router-dom';
+import { useOrderStorage } from '../useOrderStorage';
+import { localStorageClear } from '../../localStorageUtil';
 
 const Navbar = () => {
   const [showDialogue, setShowDialogue] = useState(false);
-  const { data, name,cred } = useStore();
-  const { dataUp } = useUpdateStore();
+  const { data,cred } = useStore();
+  const { dataUp ,resetDataUp} = useUpdateStore();
   const navigate = useNavigate();
+  
+  const { resetData}=useStore()
+  const { setProductId}=useOrderStorage()
   // const [Value, setValue] = useState()
   // function hello(e) {
   //   console.log(e.target.value);
@@ -66,12 +72,30 @@ const Navbar = () => {
     navigate(`/productdetails/${id}`);
     setValue('')
   };
+  
+  const goHome = () => {
+    // Implement your view function logic here
+   
+    navigate(`/home`);
+   
+  };
+  
+  const logOut = () => {
+    // Implement your view function logic here
+   
+    navigate(`/home`);
+    setProductId(dataUp)
+    resetDataUp()
+    resetData()
+    localStorageClear()
+    window.location.reload()
+  };
 
 
   return (
     <>
       <div className='navbar-container w-screen d-flex justify-content-between align-items-center mx-4 my-2'>
-        <div><h3 className='mx-4'>Exclusive</h3></div>
+        <div><h3 className='mx-4' onClick={()=>(goHome())}>Exclusive</h3></div>
         <div className='navbar-links w-screen d-flex justify-content-between align-items-center mx-4 my-2'>
           <Link to="/home" className='text-dark text-decoration-none mx-4 my-2'>Home</Link>
           <Link to="/contact" className='text-dark text-decoration-none mx-4 my-2'>Contact</Link>
@@ -157,9 +181,10 @@ const Navbar = () => {
               {showDialogue && (
                 <div className='dialogue-box d-flex flex-column'>
                   <Link to={"/update"} className='text-decoration-none text-white ' onClick={() => setShowDialogue(!showDialogue)}> <CiUser size={20} className='m-2'/>Manage My Account</Link>
-                  <Link to={"/update"} className='text-decoration-none text-white'> <IoBagRemoveOutline size={20} className='m-2'/>My Account</Link>
-                  <Link to={"/update"} className='text-decoration-none text-white' ><RxCrossCircled size={20} className='m-2'/>My Cancelation</Link>
-                  <Link to={"/update"} className='text-decoration-none text-white'><CiStar size={20} className='m-2'/>My reviews</Link>
+                  <Link to={"/update"} className='text-decoration-none text-white' onClick={() => setShowDialogue(!showDialogue)}> <IoBagRemoveOutline size={20} className='m-2'/>My Account</Link>
+                  <Link to={"/update"} className='text-decoration-none text-white' onClick={() => setShowDialogue(!showDialogue)}><RxCrossCircled size={20} className='m-2'/>My Cancelation</Link>
+                  <Link to={"/update"} className='text-decoration-none text-white'onClick={() => setShowDialogue(!showDialogue)}><CiStar size={20} className='m-2'/>My reviews</Link>
+                  <Link to={"/home"} className='text-decoration-none text-white' onClick={() => {logOut()} }><IoIosLogOut size={20} className='m-2'/>Log Out</Link>
                   
                 </div>
               )}

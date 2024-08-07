@@ -11,7 +11,7 @@ import PaymentForm from './PaymentForm';
 import { useNavigate } from 'react-router-dom';
 import { useOrderStorage } from './useOrderStorage';
 const BillPayment = () => {
-  const {  setUserName,setUserStreetAddress,setUserFloorNo,setUserCity,setUserPhoneNumber,setUserMail} = useOrderStorage();
+  const {  setUserName,setUserStreetAddress,setUserFloorNo,setUserCity,setUserPhoneNumber,setUserMail,setUserPaymentStat} = useOrderStorage();
   const navigate = useNavigate();
 const notify = (detailing) => toast.success("Order "+ detailing +"succsesfully");
 
@@ -45,7 +45,8 @@ const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
           setUserCity(formData.townCity)
           setUserPhoneNumber(formData.phoneNumber)
           setUserMail(formData.emailAddress)
-    
+          setUserPaymentStat("card")
+
           navigate('/creditCards')
        
       
@@ -68,7 +69,7 @@ const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
         setUserCity(formData.townCity)
         setUserPhoneNumber(formData.phoneNumber)
         setUserMail(formData.emailAddress)
-     
+        setUserPaymentStat("cash on delivary")
           navigate('/paymentConfirmation')  
        
          }
@@ -203,6 +204,8 @@ const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
 
 
     <div style={{width:"45%"}}>
+
+      awd
 
 <div  >
   <h4>Cart Total</h4>

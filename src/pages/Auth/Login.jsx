@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react'
 import image6 from "../../images/SideImage.png"
 import { Link, useNavigate } from 'react-router-dom';
 import  useStore  from '../../useStore';
+import { getAuth ,  signInWithEmailAndPassword} from "firebase/auth"
+import {app} from "../../config/firebase"
+import { toast, ToastContainer } from 'react-toastify';
 
+const auth=getAuth(app)
 
 
 const Login = () => {
@@ -13,7 +17,7 @@ const Login = () => {
   const { email: storedEmail, password: storedPassword, setEmail, setPassword, setCred } = useStore();
   const [error, setError] = useState('');
   const navigate = useNavigate();
-
+  const notify = (e) => toast.warn(e)
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent default form submission
     const email = e.target.email.value;
@@ -26,9 +30,15 @@ const Login = () => {
     }
 
     // Check against stored signup data
-    if (email !== storedEmail || password !== storedPassword) {
-      setError('Invalid email or password');
-      return;
+    // if (email !== storedEmail || password !== storedPassword) {
+    //   setError('Invalid email or password');
+    //   return;
+    // }
+
+    try {
+      signInWithEmailAndPassword(auth,email,password)
+    } catch (error) {
+    notify(error)
     }
 
     // Clear error message
@@ -42,11 +52,12 @@ const Login = () => {
     console.log("Login form submitted:", { email, password });
 
   
-    navigate('/cart');
+    navigate('/home');
   };
 
   return (
     <div className="container mt-5">
+          <ToastContainer />
       <div className="row justify-content-center align-items-center">
         <div className="col-lg-6 d-none d-lg-block">
           <img src={image6} alt="Illustration" className="img-fluid" />

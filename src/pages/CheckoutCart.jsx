@@ -13,7 +13,7 @@ const CheckoutCart = ({ title, price }) => {
 
   useEffect(() => {
     setLocalStorageItem(title, quantity);
-    setProductQty(  quantity)
+    setProductQty({ title, quantity })
   }, [ title,quantity]);
   
 

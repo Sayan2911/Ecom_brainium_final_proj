@@ -14,7 +14,8 @@ export const useOrderStorage = create((set, get) => ({
     UserFloorNo: '',
     UserCity: '',
     UserPhoneNumber: '',
-    UserMail: ''
+    UserMail: '',
+    UserPaymentStat:''
   },
   setProductId: (value) => set(state => ({
     orderData: {
@@ -28,10 +29,10 @@ export const useOrderStorage = create((set, get) => ({
       ProductName: [...state.orderData.ProductName, value]
     }
   })),
-  setProductQty: (value) => set(state => ({
+  setProductQty: ({title,quantity}) => set(state => ({
     orderData: {
       ...state.orderData,
-      ProductQty: [ ...state.orderData.ProductQty ,value]
+      ProductQty: { ...state.orderData.ProductQty ,[title]:quantity}
     } 
   })),
   setProductImg: (value) => set(state => ({
@@ -88,7 +89,13 @@ export const useOrderStorage = create((set, get) => ({
     userData: {
       ...state.userData,
       UserMail: [...state.userData.UserMail, value]
-    }
+    },
+  })),
+  setUserPaymentStat: (value) => set(state => ({
+    userData: {
+      ...state.userData,
+      UserPaymentStat: [value]
+    },
   })),
   // User Data Getters
   getUserName: () => get().userData.UserName,
@@ -96,7 +103,8 @@ export const useOrderStorage = create((set, get) => ({
   getUserFloorNo: () => get().userData.UserFloorNo,
   getUserCity: () => get().userData.UserCity,
   getUserPhoneNumber: () => get().userData.UserPhoneNumber,
-  getUserMail: () => get().userData.UserMail
+  getUserMail: () => get().userData.UserMail,
+  getUserPaymentStat: () => get().userData.UserPaymentStat,
 
 
 }));

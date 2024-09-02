@@ -1,6 +1,3 @@
-Here's the updated README including the dependencies, installation, and usage sections:
-
----
 
 # Ecom_brainium_final_proj
 
@@ -112,13 +109,3 @@ For any issues or questions, please contact: [sayandas.brainium@gmail.com](mailt
 
 Special thanks to:
 - Tutorials and resources used to build this project.
-
-## Additional Information
-
-- Known Issues: [List any known issues or bugs]
-- Future Improvements: [List any planned features or enhancements]
-- Related Projects: [Mention any related projects or work]
-
----
-
-Feel free to add screenshots and any additional details as needed!

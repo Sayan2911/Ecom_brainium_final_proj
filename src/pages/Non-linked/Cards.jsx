@@ -70,7 +70,7 @@ const Cards = ({id,image,title,price,star,rates}) => {
 
     <div className="p-3" style={{ height: '200px', width: '100%' , backgroundColor:"#f5f5f5"}} >
 
-        <img className="card-img-top object-fit-scale p-2" src={image} alt="none" style={{ height: '150px', width: '100%' ,paddingBottom:"3vw", backgroundColor:"#f5f5f5"}} />
+        <img className="card-img-top object-fit-scale p-2" src={image} loading="lazy"  alt="none" style={{ height: '150px', width: '100%' ,paddingBottom:"3vw", backgroundColor:"#f5f5f5"}} />
     </div>
 
 

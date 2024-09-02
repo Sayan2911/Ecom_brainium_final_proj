@@ -7,10 +7,14 @@ const CardsCont = () => {
 
 useEffect(() => {
  
-setData(store)
+  fetch('https://fakestoreapi.com/products/')
+  .then(res=>res.json())
+  .then(json=>setData(json))
+
+
 
 }, [])
-
+ 
 useEffect(() => {
   window.scrollTo(0, 0);
 }, []);
@@ -30,7 +34,7 @@ useEffect(() => {
             desc={item.desc}
             price={item.price}
             star={item.rating.rate}
-            rates={item.rating.count}
+            rates={item.rating.count} 
           />
         ))}
       </div>

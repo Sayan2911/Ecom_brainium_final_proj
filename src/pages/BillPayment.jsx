@@ -19,7 +19,7 @@ const notify = (detailing) => toast.success("Order "+ detailing +"succsesfully")
 const [check, setCheck] = useState(false)
 const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
 
-
+  
     const {resetCartData }=usecartStore()
     const {resetData }=useStore()
 

@@ -101,7 +101,7 @@ const Home = () => {
       <Link to={"/jewelery"} className="text-decoration-none m-1 text-dark">Health & beauty</Link>
     </div>
 
-      <div className="  d-flex justify-content-center align-items-center  mt-4   " style={{ width: '80%' ,height:"38vh",marginRight:" 2.5rem",marginLeft:"1.5rem"}}><Swiper/> </div>
+      <div className="  d-flex justify-content-center align-items-center  mt-4   " style={{ width: '80%' ,height:"110%",marginRight:" 2.5rem",marginLeft:"1.5rem" ,display:"none"}}><Swiper/> </div>
     
       </div>
 
